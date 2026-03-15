@@ -8,11 +8,11 @@ export default function SearchBox({ updateInfo }) {
   const [city, setCity] = useState("");
   const [error, setError] = useState("");
   const API_URL =
-    import.meta.env.VITE_WEATHER_API_URL ||
-    (typeof process !== "undefined" && "https://api.openweathermap.org/data/2.5/weather");
+    import.meta.env.VITE_WEATHER_API_URL ??
+    "https://api.openweathermap.org/data/2.5/weather";
   const API_KEY =
-    import.meta.env.VITE_WEATHER_API_KEY ||
-    (typeof process !== "undefined" && "85aaeb4443005a19af498c8848230989");
+    import.meta.env.VITE_WEATHER_API_KEY ??
+    "85aaeb4443005a19af498c8848230989";
 
   const getWeatherInfo = async () => {
     if (!city.trim()) {
