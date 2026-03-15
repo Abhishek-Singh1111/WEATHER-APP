@@ -1,0 +1,123 @@
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.info-card {
+  width: 100%;
+  border-radius: 20px !important;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.4);
+  color: #e2e8f0;
+}
+
+.info-hero {
+  height: 220px;
+  position: relative;
+}
+
+.info-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 32%, rgba(0, 0, 0, 0.58) 100%);
+}
+
+.info-content {
+  padding: 18px 20px 12px;
+}
+
+.info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.info-kicker {
+  margin: 0 0 2px;
+  color: #94a3b8;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.info-subtitle {
+  margin: 4px 0 0;
+  color: #cbd5e1;
+}
+
+.chip-pill {
+  border-color: rgba(56, 189, 248, 0.45) !important;
+  color: #7dd3fc !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+  font-weight: 600;
+}
+
+.temp-block {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 6px 0 18px;
+}
+
+.temp-main {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.temp-unit {
+  font-size: 26px;
+  color: #94a3b8;
+}
+
+.temp-feels {
+  color: #cbd5e1;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.metric {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 14px;
+  padding: 12px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-icon {
+  color: #7dd3fc;
+}
+
+.metric .label {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.metric .value {
+  font-weight: 600;
+}
+
+@media (max-width: 520px) {
+  .info-hero {
+    height: 180px;
+  }
+
+  .temp-main {
+    font-size: 34px;
+  }
+}

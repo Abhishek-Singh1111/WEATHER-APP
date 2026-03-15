@@ -1,0 +1,85 @@
+.app-shell {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.glass-panel {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(14px);
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.app-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(56, 189, 248, 0.14);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: #7dd3fc;
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  width: fit-content;
+}
+
+.app-title {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.app-subtitle {
+  margin: 0;
+  color: #cbd5e1;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.quick-tip {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quick-tip strong {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glass-panel {
+    padding: 22px;
+  }
+}
+
+@media (max-width: 520px) {
+  .app-title {
+    font-size: 24px;
+  }
+}
