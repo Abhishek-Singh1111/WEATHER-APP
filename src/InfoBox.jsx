@@ -12,26 +12,37 @@ import "./InfoBox.css";
 
 export default function InfoBox({ info }) {
   const INIT_URL =
-    "https://plus.unsplash.com/premium_photo-1669809948017-518b5d800d73?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2VhdGhlcnxlbnwwfHwwfHx8MA%3D%3D";
+    "https://wallpaperaccess.com/full/3482171.jpg";
   const RAIN_URL =
-    "https://images.unsplash.com/photo-1472142139238-2096aa90c8b3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHJhaW58ZW58MHx8MHx8fDA%3D";
-  const HOT_URL =
-    "https://images.unsplash.com/photo-1447601932606-2b63e2e64331?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG90JTIwd2VhdGhlcnxlbnwwfHwwfHx8MA%3D%3D";
-  const COLD_URL =
-    "https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sZCUyMHdlYXRoZXJ8ZW58MHx8MHx8fDA%3D";
+    "https://media.istockphoto.com/id/1257951336/photo/transparent-umbrella-under-rain-against-water-drops-splash-background-rainy-weather-concept.jpg?s=612x612&w=0&k=20&c=lNvbIw1wReb-owe7_rMgW8lZz1zElqs5BOY1AZhyRXs=";
+  const CLOUD_URL =
+"https://static.vecteezy.com/system/resources/thumbnails/065/872/359/small/sky-is-full-of-clouds-and-stars-photo.jpg" ;
+ const HOT_URL ="https://als-gardencenter.com/cdn/shop/articles/iStock-996611730.jpg?v=1655772592"; 
+   const COLD_URL =
+"https://media.istockphoto.com/id/1548122985/photo/storm-clouds.jpg?s=612x612&w=0&k=20&c=ZiBAD5PNKjcIQwxj1S2onRgLUb5kEX3pjWGM_1v9T3U="  ;
+const SNOW_URL =
+    "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80";
 
   const condition = info?.weather
     ? info.weather.charAt(0).toUpperCase() + info.weather.slice(1)
     : "N/A";
 
-  const heroImage =
-    info.humidity > 80
+  const description = info?.weather?.toLowerCase() ?? "";
+  const iconUrl = info?.icon
+    ? `https://openweathermap.org/img/wn/${info.icon}@2x.png`
+    : null;
+
+  const heroImage = description.includes("snow")
+    ? SNOW_URL
+    : description.includes("rain") || description.includes("drizzle")
       ? RAIN_URL
-      : info.temp > 27
-        ? HOT_URL
-        : info.temp < 12
-          ? COLD_URL
-          : INIT_URL;
+      : description.includes("cloud")
+        ? CLOUD_URL
+        : info.temp > 27
+          ? HOT_URL
+          : info.temp < 8
+            ? COLD_URL
+            : INIT_URL;
 
   return (
     <div className="cardContainer">
@@ -42,9 +53,19 @@ export default function InfoBox({ info }) {
           <div className="info-top">
             <div>
               <p className="info-kicker">Currently</p>
-              <Typography variant="h5" component="div">
-                {info.city}
-              </Typography>
+              <div className="city-row">
+                <Typography variant="h5" component="div">
+                  {info.city}
+                </Typography>
+                {iconUrl && (
+                  <img
+                    className="condition-icon"
+                    src={iconUrl}
+                    alt={condition}
+                    loading="lazy"
+                  />
+                )}
+              </div>
               <p className="info-subtitle">{condition}</p>
             </div>
             <Chip

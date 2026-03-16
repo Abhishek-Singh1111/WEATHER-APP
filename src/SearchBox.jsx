@@ -46,6 +46,7 @@ export default function SearchBox({ updateInfo }) {
         humidity: data.main.humidity,
         feelsLike: data.main.feels_like,
         weather: data.weather[0].description,
+        icon: data.weather[0].icon,
       };
 
       setError("");

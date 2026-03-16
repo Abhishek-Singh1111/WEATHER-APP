@@ -38,6 +38,19 @@
   margin-bottom: 12px;
 }
 
+.city-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.condition-icon {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
+}
+
 .info-kicker {
   margin: 0 0 2px;
   color: #94a3b8;
