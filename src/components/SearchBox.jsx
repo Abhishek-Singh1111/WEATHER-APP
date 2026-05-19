@@ -69,12 +69,16 @@ export default function SearchBox({ updateInfo, onLoadingChange }) {
 
       const result = {
         city: data.name,
+        country: data.sys?.country,
+        coordLat: data.coord?.lat,
+        coordLon: data.coord?.lon,
         temp: data.main.temp,
         tempMin: data.main.temp_min,
         tempMax: data.main.temp_max,
         humidity: data.main.humidity,
         feelsLike: data.main.feels_like,
         pressure: data.main.pressure,
+        visibility: data.visibility,
         windSpeed: data.wind?.speed,
         weather: data.weather[0].description,
         icon: data.weather[0].icon,
@@ -167,10 +171,6 @@ export default function SearchBox({ updateInfo, onLoadingChange }) {
           {loading ? "Searching" : "Search"}
         </Button>
       </form>
-
-      <p className="search-hint">
-        Uses OpenWeather. Metric units. Example: "Nuuk, GL" or "Reykjavik, IS".
-      </p>
       <Collapse in={Boolean(error)}>
         <Alert
           className="error-alert"

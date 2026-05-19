@@ -82,11 +82,14 @@
   line-height: 1.6;
 }
 
-.app-grid {
+.app-stack {
   display: grid;
-  grid-template-columns: minmax(280px, 380px) 1fr;
-  gap: 20px;
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.app-search-row {
+  width: 100%;
 }
 
 .quick-tip {
@@ -104,10 +107,6 @@
 }
 
 @media (max-width: 960px) {
-  .app-grid {
-    grid-template-columns: 1fr;
-  }
-
   .glass-panel {
     padding: 20px;
   }
@@ -116,5 +115,31 @@
 @media (max-width: 520px) {
   .app-title {
     font-size: 24px;
+  }
+
+  .glass-panel {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .app-header {
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    gap: 8px;
+  }
+
+  .app-eyebrow {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .app-stack {
+    gap: 14px;
+  }
+
+  .quick-tip {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.35;
   }
 }
